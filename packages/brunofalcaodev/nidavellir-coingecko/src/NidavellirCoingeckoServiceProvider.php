@@ -1,9 +1,9 @@
 <?php
 
-namespace Nidavellir\Kucoin;
+namespace Nidavellir\Coingecko;
 
 use Illuminate\Support\ServiceProvider;
-use Nidavellir\Kucoin\Commands\AllTokens;
+use Nidavellir\Coingecko\Commands\UpdateTokens;
 
 class NidavellirCoingeckoServiceProvider extends ServiceProvider
 {
@@ -20,7 +20,7 @@ class NidavellirCoingeckoServiceProvider extends ServiceProvider
     protected function registerCommands(): void
     {
         $this->commands([
-            AllTokens::class,
+            UpdateTokens::class,
         ]);
     }
 }

@@ -6,14 +6,17 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Cube\Models\Exchange;
+use Nidavellir\Cube\Models\Quote;
 use Nidavellir\Cube\Models\Token;
 use Nidavellir\Cube\Models\User;
 use Nidavellir\Cube\Observers\ApiObserver;
 use Nidavellir\Cube\Observers\ExchangeObserver;
+use Nidavellir\Cube\Observers\QuoteObserver;
 use Nidavellir\Cube\Observers\TokenObserver;
 use Nidavellir\Cube\Observers\UserObserver;
 use Nidavellir\Cube\Policies\ApiPolicy;
 use Nidavellir\Cube\Policies\ExchangePolicy;
+use Nidavellir\Cube\Policies\QuotePolicy;
 use Nidavellir\Cube\Policies\TokenPolicy;
 use Nidavellir\Cube\Policies\UserPolicy;
 
@@ -43,6 +46,7 @@ class NidavellirCubeServiceProvider extends ServiceProvider
         Api::observe(ApiObserver::class);
         Token::observe(TokenObserver::class);
         Exchange::observe(ExchangeObserver::class);
+        Quote::observe(QuoteObserver::class);
     }
 
     protected function registerPolicies(): void
@@ -51,6 +55,7 @@ class NidavellirCubeServiceProvider extends ServiceProvider
         Gate::policy(Token::class, TokenPolicy::class);
         Gate::policy(Exchange::class, ExchangePolicy::class);
         Gate::policy(Api::class, ApiPolicy::class);
+        Gate::policy(Quote::class, QuotePolicy::class);
     }
 
     protected function publishResources()

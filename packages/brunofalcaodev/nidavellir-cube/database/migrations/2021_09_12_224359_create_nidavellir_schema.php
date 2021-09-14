@@ -50,13 +50,14 @@ class CreateNidavellirSchema extends Migration
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name')
-                  ->comment('The token technical symbol name (e.g.: Cardano)');
-
             $table->string('canonical')
                   ->comment('The token canonical symbol (e.g.: ADA)');
 
+            $table->string('name')
+                  ->comment('The token technical symbol name (e.g.: Cardano)');
+
             $table->string('site_url')
+                  ->nullable()
                   ->comment('The site url');
 
             $table->timestamps();

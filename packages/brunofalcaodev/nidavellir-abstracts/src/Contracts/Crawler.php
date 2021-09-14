@@ -2,6 +2,8 @@
 
 namespace Nidavellir\Abstracts\Contracts;
 
+use Nidavellir\Cube\Models\Api;
+
 interface Crawler
 {
     /**

@@ -7,6 +7,17 @@ use Nidavellir\Cube\Models\Token;
 class TokenObserver
 {
     /**
+     * Handle the Token "saving" event.
+     *
+     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @return void
+     */
+    public function saving(Token $token)
+    {
+        $token->canonical = strtoupper($token->canonical);
+    }
+
+    /**
      * Handle the Token "created" event.
      *
      * @param  \Nidavellir\Cube\Models\Token  $token

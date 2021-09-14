@@ -164,6 +164,56 @@
             }
         },
         {
+            "name": "brunofalcaodev/nidavellir-coingecko",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/brunofalcaodev/nidavellir-coingecko",
+                "reference": "975c601733f04a88786ce7e2c6d3e2925e6f411f"
+            },
+            "require": {
+                "brunofalcaodev/nidavellir-cube": "dev-master",
+                "codenix-sv/coingecko-api": "^1.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nidavellir\\Coingecko\\NidavellirCoingeckoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nidavellir\\Coingecko\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Falcão",
+                    "email": "bruno.c.falcao@brunofalcao.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Nidavellir coingecko crawler",
+            "homepage": "https://github.com/brunofalcaodev/nidavellir-coingecko",
+            "keywords": [
+                "brunofalcaodev"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "brunofalcaodev/nidavellir-cube",
             "version": "dev-master",
             "dist": {
@@ -220,10 +270,11 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-installer",
-                "reference": "c0e3c7f82e17b72e5ddb751aee344972d85ddf37"
+                "reference": "50217779f195f53b6f612c6af666f7d93001a009"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
+                "brunofalcaodev/nidavellir-coingecko": "dev-master",
                 "brunofalcaodev/nidavellir-cube": "dev-master",
                 "brunofalcaodev/nidavellir-kucoin": "dev-master",
                 "illuminate/support": "^8.0",

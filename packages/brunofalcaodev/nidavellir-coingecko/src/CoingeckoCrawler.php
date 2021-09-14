@@ -1,6 +1,6 @@
 <?php
 
-namespace Nidavellir\Kucoin;
+namespace Nidavellir\Coingecko;
 
 use Codenixsv\CoinGeckoApi\CoinGeckoClient;
 use Nidavellir\Abstracts\Contracts\Crawler;
@@ -47,9 +47,23 @@ class CoingeckoCrawlerService implements Crawler
         return $this->response;
     }
 
+    public function execute(callable $function)
+    {
+        try {
+            $this->response = $function();
+        } catch (\Exception $e) {
+            dd($e);
+        }
+    }
+
     // ***** Api operations *****
     public function allTokens()
     {
         $client = new CoinGeckoClient();
+        $this->execute(function () use ($client) {
+            return $client->coins()->getList();
+        });
+
+        return $this;
     }
 }
