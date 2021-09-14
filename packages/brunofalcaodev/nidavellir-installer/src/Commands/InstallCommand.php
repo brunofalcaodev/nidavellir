@@ -44,7 +44,19 @@ class InstallCommand extends Command
 "
         );
 
+        $this->info('Deleting app/Models...');
         remove_directory(base_path('app/Models'));
+
+        $this->info('Publishing nidavellir-cube assets...');
+        $this->call('vendor:publish', [
+            '--force' => true,
+            '--provider' => 'Nidavellir\\Cube\\NidavellirCubeServiceProvider',
+        ]);
+
+        $this->info('Freshing database + initial seeding...');
+        $this->call('migrate:fresh', [
+            '--step'
+        ]);
 
         return 0;
     }

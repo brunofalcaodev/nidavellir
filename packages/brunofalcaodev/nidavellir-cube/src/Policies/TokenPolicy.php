@@ -3,9 +3,10 @@
 namespace Nidavellir\Cube\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Nidavellir\Cube\Models\Token;
 use Nidavellir\Cube\Models\User;
 
-class UserPolicy
+class TokenPolicy
 {
     use HandlesAuthorization;
 
@@ -24,10 +25,10 @@ class UserPolicy
      * Determine whether the user can view the model.
      *
      * @param  \Nidavellir\Cube\Models\User  $user
-     * @param  \Nidavellir\Cube\Models\User  $model
+     * @param  \Nidavellir\Cube\Models\Token  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, User $model)
+    public function view(User $user, Token $model)
     {
         return true;
     }
@@ -47,10 +48,10 @@ class UserPolicy
      * Determine whether the user can update the model.
      *
      * @param  \Nidavellir\Cube\Models\User  $user
-     * @param  \Nidavellir\Cube\Models\User  $model
+     * @param  \Nidavellir\Cube\Models\Token  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, User $model)
+    public function update(User $user, Token $model)
     {
         return true;
     }
@@ -59,10 +60,10 @@ class UserPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \Nidavellir\Cube\Models\User  $user
-     * @param  \Nidavellir\Cube\Models\User  $model
+     * @param  \Nidavellir\Cube\Models\Token  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, Token $model)
     {
         return true;
     }
@@ -71,10 +72,10 @@ class UserPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \Nidavellir\Cube\Models\User  $user
-     * @param  \Nidavellir\Cube\Models\User  $model
+     * @param  \Nidavellir\Cube\Models\Token  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, Token $model)
     {
         return true;
     }
@@ -83,10 +84,10 @@ class UserPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \Nidavellir\Cube\Models\User  $user
-     * @param  \Nidavellir\Cube\Models\User  $model
+     * @param  \Nidavellir\Cube\Models\Token  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, Token $model)
     {
         return true;
     }

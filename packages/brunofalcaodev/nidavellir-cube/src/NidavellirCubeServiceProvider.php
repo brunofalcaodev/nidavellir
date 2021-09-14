@@ -5,53 +5,32 @@ namespace Nidavellir\Cube;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Nidavellir\Cube\Models\Api;
+use Nidavellir\Cube\Models\Exchange;
+use Nidavellir\Cube\Models\Token;
 use Nidavellir\Cube\Models\User;
-use Nidavellir\Cube\Policies\UserPolicy;
+use Nidavellir\Cube\Observers\ApiObserver;
+use Nidavellir\Cube\Observers\ExchangeObserver;
+use Nidavellir\Cube\Observers\TokenObserver;
 use Nidavellir\Cube\Observers\UserObserver;
+use Nidavellir\Cube\Policies\ApiPolicy;
+use Nidavellir\Cube\Policies\ExchangePolicy;
+use Nidavellir\Cube\Policies\TokenPolicy;
+use Nidavellir\Cube\Policies\UserPolicy;
 
 class NidavellirCubeServiceProvider extends ServiceProvider
 {
+    public function register()
+    {
+        //
+    }
+
     public function boot()
     {
         $this->importMigrations();
         $this->registerObservers();
         $this->registerPolicies();
-        $this->registerCommands();
         $this->publishResources();
-        $this->loadTestRoutes();
-        $this->loadRoutes();
-        $this->loadViews();
-    }
-
-    protected function loadViews()
-    {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'site');
-    }
-
-    protected function loadRoutes()
-    {
-        Route::middleware(['web'])
-             ->group(function () {
-                 include __DIR__.'/../routes/web.php';
-             });
-    }
-
-    protected function loadTestRoutes()
-    {
-        if (app()->environment() != 'production') {
-            if (file_exists(__DIR__.'/../routes/tests.php')) {
-                $routesPath = __DIR__.'/../routes/tests.php';
-                Route::middleware(['web'])
-                 ->group(function () use ($routesPath) {
-                     include $routesPath;
-                 });
-            }
-        }
-    }
-
-    public function register()
-    {
-        //
     }
 
     protected function importMigrations(): void
@@ -62,20 +41,17 @@ class NidavellirCubeServiceProvider extends ServiceProvider
     protected function registerObservers(): void
     {
         User::observe(UserObserver::class);
+        Api::observe(ApiObserver::class);
+        Token::observe(TokenObserver::class);
+        Exchange::observe(ExchangeObserver::class);
     }
 
     protected function registerPolicies(): void
     {
         Gate::policy(User::class, UserPolicy::class);
-    }
-
-    protected function registerCommands(): void
-    {
-        /*
-        $this->commands([
-            'command.prefix:suffix',
-        ]);
-        */
+        Gate::policy(Token::class, TokenPolicy::class);
+        Gate::policy(Exchange::class, ExchangePolicy::class);
+        Gate::policy(Api::class, ApiPolicy::class);
     }
 
     protected function publishResources()

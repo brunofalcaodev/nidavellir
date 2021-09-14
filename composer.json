@@ -24,6 +24,7 @@
         "laravel/framework": "^8.54"
     },
     "require-dev": {
+        "matt-allan/laravel-code-style": "dev-main",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
@@ -42,6 +43,8 @@
         }
     },
     "scripts": {
+        "check-style": "php-cs-fixer fix --dry-run --diff",
+        "fix-style": "php-cs-fixer fix",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

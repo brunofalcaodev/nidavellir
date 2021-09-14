@@ -3,22 +3,23 @@
 namespace Nidavellir\Kucoin\Commands;
 
 use Illuminate\Console\Command;
+use Nidavellir\Kucoin\KucoinCrawler;
 
-class AllTickers extends Command
+class AllTokens extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'kucoin:all-tickers';
+    protected $signature = 'kucoin:all-tokens';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Get all Kucoin tickers and loads them into the database';
+    protected $description = '( https://docs.kucoin.com/#get-all-tickers )';
 
     /**
      * Create a new command instance.
@@ -37,7 +38,10 @@ class AllTickers extends Command
      */
     public function handle()
     {
-        $this->info('Fetching all tickers');
+        $this->info('Fetching all tokens...');
+
+        $tokens = KucoinCrawler::allTokens();
+
         return 0;
     }
 }

@@ -14,35 +14,50 @@ class CreateNidavellirSchema extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('apis', function (Blueprint $table) {
             $table->id();
+
+            $table->text('description')
+                  ->nullable()
+                  ->comment('A humanable description of what is this api used for');
+
+            $table->foreignId('exchange_id')
+                  ->constrained()
+                  ->comment('The relatable Exchange that this api instance belongs to');
 
             $table->foreignId('user_id')
                   ->constrained()
-                  ->comment('Related user id');
+                  ->comment('The relatable User that his api instance belongs to');
+
+            $table->string('api_key')
+                  ->nullable()
+                  ->comment('The API key returned from the exchange api creation');
+
+            $table->string('api_secret')
+                  ->nullable()
+                  ->comment('The API secret returned from the exchange api creation');
+
+            $table->string('api_passphrase')
+                  ->nullable()
+                  ->comment('The API key returned from the exchange api creation');
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->engine="MyISAM";
-        });
-
-        Schema::create('exchanges', function (Blueprint $table) {
-            $table->id();
-
-            $table->timestamps();
-            $table->softDeletes();
-
-            $table->engine="MyISAM";
+            $table->engine = 'MyISAM';
         });
 
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('exchange_id')
+                  ->constrained()
+                  ->comment('The token pair for the relatable exchange');
+
             $table->timestamps();
             $table->softDeletes();
 
-            $table->engine="MyISAM";
+            $table->engine = 'MyISAM';
         });
 
         Schema::create('orders', function (Blueprint $table) {
@@ -51,7 +66,7 @@ class CreateNidavellirSchema extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->engine="MyISAM";
+            $table->engine = 'MyISAM';
         });
 
         Schema::create('alerts', function (Blueprint $table) {
@@ -60,7 +75,7 @@ class CreateNidavellirSchema extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->engine="MyISAM";
+            $table->engine = 'MyISAM';
         });
 
         $seeder = new InitialDataSeeder();

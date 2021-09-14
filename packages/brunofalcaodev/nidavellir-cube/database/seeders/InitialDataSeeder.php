@@ -14,6 +14,15 @@ class InitialDataSeeder extends Seeder
      */
     public function run()
     {
+        // Create 10 users.
         User::factory(10)->create();
+
+        // Create my user.
+        $user = User::create([
+            'name' => 'Bruno Falcao',
+            'email' => 'me@brunofalcao.dev',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password')
+        ]);
     }
 }

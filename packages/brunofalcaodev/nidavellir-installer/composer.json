@@ -17,7 +17,9 @@
     "require": {
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.0",
-        "brunofalcaodev/nidavellir-cube": "dev-master"
+        "brunofalcaodev/nidavellir-cube": "dev-master",
+        "brunofalcaodev/nidavellir-abstracts": "dev-master",
+        "brunofalcaodev/nidavellir-kucoin": "dev-master"
     },
     "autoload": {
         "psr-4": {

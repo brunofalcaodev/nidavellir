@@ -1,14 +1,14 @@
 <?php
 
-if (!function_exists('remove_diretory')) {
-    function remove_diretory($path)
+if (! function_exists('remove_directory')) {
+    function remove_directory($path)
     {
-        $files = glob($path . '/*');
-        foreach ($files as $file) {
-            is_dir($file) ? remove_diretory($file) : unlink($file);
+        if (is_dir($path)) {
+            $files = glob($path.'/*');
+            foreach ($files as $file) {
+                is_dir($file) ? remove_diretory($file) : unlink($file);
+            }
+            rmdir($path);
         }
-        rmdir($path);
-
-        return;
     }
 }
