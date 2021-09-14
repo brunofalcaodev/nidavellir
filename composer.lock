@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bad9ce9359697484c56e5d631c632402",
+    "content-hash": "2f3c47ca35fa5578e7e0ec73458706b7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -123,14 +123,56 @@
             "time": "2021-08-15T20:50:18+00:00"
         },
         {
+            "name": "brunofalcaodev/nidavellir-abstracts",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/brunofalcaodev/nidavellir-abstracts",
+                "reference": "b54ff074bdb922832db49f9db4804ce837430483"
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nidavellir\\Abstracts\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Falcão",
+                    "email": "me@brunofalcao.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Nidavellir Abstracts",
+            "homepage": "https://github.com/brunofalcaodev/nidavellir-abstracts",
+            "keywords": [
+                "brunofalcaodev"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "brunofalcaodev/nidavellir-cube",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-cube",
-                "reference": "712b86a7ccf9760e106181986c22c1c4e6cdfd10"
+                "reference": "70bdffcc3561bbdb40f65cec4c419253098abd5a"
             },
             "require": {
+                "brunofalcaodev/nidavellir-abstracts": "dev-master",
                 "illuminate/support": "^8.0",
                 "php": "^7.4|^8.0"
             },
@@ -165,7 +207,7 @@
             "description": "Nidavellir Cube",
             "homepage": "https://github.com/brunofalcaodev/nidavellir-cube",
             "keywords": [
-                "brunocfalcao"
+                "brunofalcaodev"
             ],
             "transport-options": {
                 "symlink": true,
@@ -213,6 +255,55 @@
             ],
             "description": "Nidavellir Installer",
             "homepage": "https://github.com/brunofalcaodev/nidavellir-installer",
+            "keywords": [
+                "brunofalcaodev"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "brunofalcaodev/nidavellir-kucoin",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/brunofalcaodev/nidavellir-kucoin",
+                "reference": "394e1483523a8f6d1311e0e322e1f1bdb2bd8507"
+            },
+            "require": {
+                "brunofalcaodev/nidavellir-cube": "dev-master",
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nidavellir\\Kucoin\\NidavellirKucoinServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nidavellir\\Kucoin\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Falcão",
+                    "email": "bruno.c.falcao@brunofalcao.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Nidavellir kucoin",
+            "homepage": "https://github.com/brunofalcaodev/nidavellir-kucoin",
             "keywords": [
                 "brunofalcaodev"
             ],
@@ -7493,8 +7584,10 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "brunofalcaodev/nidavellir-abstracts": 20,
         "brunofalcaodev/nidavellir-cube": 20,
-        "brunofalcaodev/nidavellir-installer": 20
+        "brunofalcaodev/nidavellir-installer": 20,
+        "brunofalcaodev/nidavellir-kucoin": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

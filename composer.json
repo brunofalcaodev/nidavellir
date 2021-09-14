@@ -15,11 +15,13 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
+        "brunofalcaodev/nidavellir-abstracts": "dev-master",
+        "brunofalcaodev/nidavellir-cube": "dev-master",
+        "brunofalcaodev/nidavellir-installer": "dev-master",
+        "brunofalcaodev/nidavellir-kucoin": "dev-master",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.54",
-        "brunofalcaodev/nidavellir-cube": "dev-master",
-        "brunofalcaodev/nidavellir-installer": "dev-master"
+        "laravel/framework": "^8.54"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

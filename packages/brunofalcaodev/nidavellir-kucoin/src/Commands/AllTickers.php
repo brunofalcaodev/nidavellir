@@ -1,24 +1,24 @@
 <?php
 
-namespace Nidavellir\Installer\Commands;
+namespace Nidavellir\Kucoin\Commands;
 
 use Illuminate\Console\Command;
 
-class InstallCommand extends Command
+class AllTickers extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'nidavellir:install';
+    protected $signature = 'kucoin:all-tickers';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Installs Nidavellir for the first time';
+    protected $description = 'Get all Kucoin tickers and loads them into the database';
 
     /**
      * Create a new command instance.
@@ -37,15 +37,7 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->info(
-            "
- |\ | o  _|  _.     _  | | o ._
- | \| | (_| (_| \/ (/_ | | | |
-"
-        );
-
-        remove_directory(base_path('app/Models'));
-
+        $this->info('Fetching all tickers');
         return 0;
     }
 }
