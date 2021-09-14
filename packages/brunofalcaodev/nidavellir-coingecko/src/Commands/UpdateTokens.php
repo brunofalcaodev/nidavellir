@@ -39,7 +39,7 @@ class UpdateTokens extends Command
      */
     public function handle()
     {
-        $this->info('Update all Coingecko tokens...');
+        $this->info('Updating all Coingecko tokens...');
 
         $data = CoingeckoCrawler::allTokens();
 

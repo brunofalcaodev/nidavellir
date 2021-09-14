@@ -60,6 +60,10 @@ class CreateNidavellirSchema extends Migration
                   ->nullable()
                   ->comment('The site url');
 
+            $table->string('image_url')
+                  ->nullable()
+                  ->comment('Token image url');
+
             $table->timestamps();
             $table->softDeletes();
 
@@ -83,6 +87,23 @@ class CreateNidavellirSchema extends Migration
 
             $table->engine = 'MyISAM';
         });
+
+        Schema::create('quotes', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name')
+                  ->nullable()
+                  ->comment('Quote name');
+
+            $table->string('canonical')
+                  ->comment('Quote canonical');
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->engine = 'MyISAM';
+        });
+
 
         Schema::create('exchanges', function (Blueprint $table) {
             $table->id();

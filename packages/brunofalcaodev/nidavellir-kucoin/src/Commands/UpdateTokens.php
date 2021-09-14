@@ -6,14 +6,14 @@ use Illuminate\Console\Command;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Kucoin\KucoinCrawler;
 
-class AllTokens extends Command
+class UpdateTokens extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'kucoin:all-tokens';
+    protected $signature = 'kucoin:update-tokens';
 
     /**
      * The console command description.
@@ -39,14 +39,21 @@ class AllTokens extends Command
      */
     public function handle()
     {
-        $this->info('Fetching all tokens...');
+        $this->info('Updating all Kucoin tokens...');
 
-        $response = KucoinCrawler::withApi(Api::firstWhere('id', 1))
+        $data = KucoinCrawler::withApi(Api::firstWhere('id', 1))
                                  ->allTokens();
 
-        dd($response);
+        /**
+         * From here, there is a lot of things to do.
+         * 1. If the canonical doesn't exist, add it to the tokens table.
+         * 2. If the quote doesn't exist, add it to the quotes table.
+         * 3. If the pair (token-quote) doesn't exist, add it to the pairs table.
+         * 4. Update all information on the pair given the latest data.
+         */
+        dd($data);
 
-        dd($response->response());
+        dd($data->response());
 
         /*
         KuCoinApi::setBaseUri('https://openapi-sandbox.kucoin.com');

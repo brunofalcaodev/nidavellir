@@ -2,6 +2,7 @@
 
 namespace Nidavellir\Cube;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Nidavellir\Cube\Models\Api;
@@ -29,6 +30,8 @@ class NidavellirCubeServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        Model::preventLazyLoading(! $this->app->isProduction());
+
         $this->importMigrations();
         $this->registerObservers();
         $this->registerPolicies();
