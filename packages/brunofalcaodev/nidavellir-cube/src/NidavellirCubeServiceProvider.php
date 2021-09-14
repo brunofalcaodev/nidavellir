@@ -3,7 +3,6 @@
 namespace Nidavellir\Cube;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Cube\Models\Exchange;

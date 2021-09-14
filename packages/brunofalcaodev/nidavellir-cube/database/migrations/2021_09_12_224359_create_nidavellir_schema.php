@@ -50,9 +50,14 @@ class CreateNidavellirSchema extends Migration
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('exchange_id')
-                  ->constrained()
-                  ->comment('The token pair for the relatable exchange');
+            $table->string('name')
+                  ->comment('The token technical symbol name (e.g.: Cardano)');
+
+            $table->string('canonical')
+                  ->comment('The token canonical symbol (e.g.: ADA)');
+
+            $table->string('site_url')
+                  ->comment('The site url');
 
             $table->timestamps();
             $table->softDeletes();
@@ -71,6 +76,38 @@ class CreateNidavellirSchema extends Migration
 
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->engine = 'MyISAM';
+        });
+
+        Schema::create('exchanges', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name')
+                  ->unique()
+                  ->comment('Exchange name');
+
+            $table->string('canonical')
+                  ->unique()
+                  ->comment('Exchange canonical name used in queries');
+
+            $table->string('site_url')
+                  ->unique()
+                  ->nullable()
+                  ->comment('Exchange site URL');
+
+            $table->string('api_url')
+                  ->unique()
+                  ->nullable()
+                  ->comment('Exchange API URL');
+
+            $table->string('sandbox_api_url')
+                  ->unique()
+                  ->nullable()
+                  ->comment('Exchange sandbox API URL');
 
             $table->timestamps();
             $table->softDeletes();

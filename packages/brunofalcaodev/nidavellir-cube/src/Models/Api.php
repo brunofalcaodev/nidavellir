@@ -3,8 +3,6 @@
 namespace Nidavellir\Cube\Models;
 
 use Nidavellir\Abstracts\Classes\AbstractModel;
-use Nidavellir\Cube\Models\Exchange;
-use Nidavellir\Cube\Models\User;
 
 class Api extends AbstractModel
 {

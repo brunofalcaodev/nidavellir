@@ -55,7 +55,7 @@ class InstallCommand extends Command
 
         $this->info('Freshing database + initial seeding...');
         $this->call('migrate:fresh', [
-            '--step'
+            '--step',
         ]);
 
         return 0;

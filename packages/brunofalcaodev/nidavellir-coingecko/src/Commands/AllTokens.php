@@ -1,10 +1,11 @@
 <?php
 
-namespace Nidavellir\Kucoin\Commands;
+namespace Nidavellir\Coingecko\Commands;
 
 use Illuminate\Console\Command;
+use Nidavellir\Coingecko\CoingeckoCrawler;
 use Nidavellir\Cube\Models\Api;
-use Nidavellir\Kucoin\KucoinCrawler;
+use Nidavellir\Kucoin\CoingeckoCrawler;
 
 class AllTokens extends Command
 {
@@ -13,14 +14,14 @@ class AllTokens extends Command
      *
      * @var string
      */
-    protected $signature = 'kucoin:all-tokens';
+    protected $signature = 'coingecko:all-tokens';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '( https://docs.kucoin.com/#get-all-tickers )';
+    protected $description = '( https://www.coingecko.com/en/api/documentation )';
 
     /**
      * Create a new command instance.
@@ -41,8 +42,7 @@ class AllTokens extends Command
     {
         $this->info('Fetching all tokens...');
 
-        $response = KucoinCrawler::withApi(Api::firstWhere('id', 1))
-                                 ->allTokens();
+        $response = CoingeckoCrawler::allTokens();
 
         dd($response);
 

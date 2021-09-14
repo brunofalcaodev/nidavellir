@@ -4,7 +4,10 @@ namespace Nidavellir\Kucoin;
 
 use KuCoin\SDK\Auth;
 use KuCoin\SDK\KuCoinApi;
+use KuCoin\SDK\PublicApi\Symbol;
 use Nidavellir\Abstracts\Contracts\Crawler;
+use Nidavellir\Cube\Models\Api;
+use Nidavellir\Cube\Models\Exchange;
 
 class KucoinCrawler
 {
@@ -16,10 +19,14 @@ class KucoinCrawler
 
 class KucoinCrawlerService implements Crawler
 {
+    protected $api;
+    protected $auth;
+    protected $response;
+
     public function __construct()
     {
         if (env('KUCOIN_SANDBOX') == '1') {
-            KuCoinApi::setBaseUri('https://openapi-sandbox.kucoin.com');
+            KuCoinApi::setBaseUri(Exchange::firstWhere('canonical', 'kucoin')->sandbox_api_url);
         }
     }
 
@@ -28,14 +35,36 @@ class KucoinCrawlerService implements Crawler
         return new self(...$args);
     }
 
-    public function allTokens()
+    public function withApi(Api $api)
     {
+        $this->api = $api;
+
+        return $this;
     }
 
     public function connect()
     {
-        $this->connection = new Auth('key', 'secret', 'passphrase', Auth::API_KEY_VERSION_V2);
+        $this->auth = new Auth(
+            $api->api_key,
+            $api->api_secret,
+            $api->api_passphrase,
+            Auth::API_KEY_VERSION_V2
+        );
 
         return $this;
+    }
+
+    public function response()
+    {
+        return $this->response;
+    }
+
+    // ***** Api operations *****
+    public function allTokens()
+    {
+        $symbol = new Symbol($this->auth);
+        $this->response = $symbol->getAllTickers();
+
+        return collect($this->response['ticker']);
     }
 }

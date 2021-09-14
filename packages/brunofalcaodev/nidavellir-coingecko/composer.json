@@ -1,10 +1,10 @@
 {
-    "name": "brunofalcaodev/nidavellir-kucoin",
-    "description": "Nidavellir kucoin crawler",
+    "name": "brunofalcaodev/nidavellir-coingecko",
+    "description": "Nidavellir coingecko crawler",
     "keywords": [
         "brunofalcaodev"
     ],
-    "homepage": "https://github.com/brunofalcaodev/nidavellir-kucoin",
+    "homepage": "https://github.com/brunofalcaodev/nidavellir-coingecko",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -18,11 +18,12 @@
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.0",
         "kucoin/kucoin-php-sdk": "~1.1.0",
-        "brunofalcaodev/nidavellir-cube": "dev-master"
+        "brunofalcaodev/nidavellir-cube": "dev-master",
+        "codenix-sv/coingecko-api": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Nidavellir\\Kucoin\\": "src/"
+            "Nidavellir\\Coingecko\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -36,7 +37,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nidavellir\\Kucoin\\NidavellirKucoinServiceProvider"
+                "Nidavellir\\Coingecko\\NidavellirCoingeckoServiceProvider"
             ]
         }
     }
