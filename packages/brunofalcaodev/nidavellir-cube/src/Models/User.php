@@ -51,11 +51,6 @@ class User extends Authenticatable
         return $this->hasMany(Api::class);
     }
 
-    public function alerts()
-    {
-        return $this->hasManyThrough(Alert::class, Api::class);
-    }
-
     protected static function newFactory()
     {
         return UserFactory::new();
