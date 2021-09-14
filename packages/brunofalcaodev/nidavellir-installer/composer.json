@@ -20,7 +20,8 @@
         "brunofalcaodev/nidavellir-cube": "dev-master",
         "brunofalcaodev/nidavellir-abstracts": "dev-master",
         "brunofalcaodev/nidavellir-kucoin": "dev-master",
-        "brunofalcaodev/nidavellir-coingecko": "dev-master"
+        "brunofalcaodev/nidavellir-coingecko": "dev-master",
+        "brunofalcaodev/nidavellir-webhooks": "dev-master"
     },
     "autoload": {
         "psr-4": {

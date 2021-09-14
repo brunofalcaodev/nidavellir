@@ -270,13 +270,14 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-installer",
-                "reference": "50217779f195f53b6f612c6af666f7d93001a009"
+                "reference": "e093366539742b1e2644d355dbe3131bea216890"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
                 "brunofalcaodev/nidavellir-coingecko": "dev-master",
                 "brunofalcaodev/nidavellir-cube": "dev-master",
                 "brunofalcaodev/nidavellir-kucoin": "dev-master",
+                "brunofalcaodev/nidavellir-webhooks": "dev-master",
                 "illuminate/support": "^8.0",
                 "php": "^7.4|^8.0"
             },
@@ -360,6 +361,54 @@
             "homepage": "https://github.com/brunofalcaodev/nidavellir-kucoin",
             "keywords": [
                 "brunofalcaodev"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "brunofalcaodev/nidavellir-webhooks",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/brunofalcaodev/nidavellir-webhooks",
+                "reference": "2e8da6068d2b7909796ba26bd4d25f5a8bd30136"
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nidavellir\\Webhooks\\NidavellirWebhooksServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nidavellir\\Webhooks\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Falcão",
+                    "email": "bruno.c.falcao@brunofalcao.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Nidavellir Webhooks",
+            "homepage": "https://github.com/brunofalcaodev/nidavellir-webhooks",
+            "keywords": [
+                "brunocfalcao"
             ],
             "transport-options": {
                 "symlink": true,

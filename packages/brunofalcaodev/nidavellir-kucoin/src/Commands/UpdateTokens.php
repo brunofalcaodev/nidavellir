@@ -51,7 +51,9 @@ class UpdateTokens extends Command
          * 3. If the pair (token-quote) doesn't exist, add it to the pairs table.
          * 4. Update all information on the pair given the latest data.
          */
-        dd($data);
+        foreach ($data->response()['ticker'] as $token) {
+            dd($token);
+        }
 
         dd($data->response());
 

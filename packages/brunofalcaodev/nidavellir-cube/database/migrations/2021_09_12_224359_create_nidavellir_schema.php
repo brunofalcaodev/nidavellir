@@ -14,6 +14,37 @@ class CreateNidavellirSchema extends Migration
      */
     public function up()
     {
+        Schema::create('positions', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('api_id');
+            $table->foreignId('token_id');
+            $table->foreignId('quote_id');
+
+            $table->string('buy_id')
+                  ->comment('The exchange/api system buy id');
+
+            $table->decimal('buy_rate', 25, 10)
+                  ->nullable()
+                  ->comment('The effective token order close price');
+
+            $table->decimal('amount', 25, 10)
+                  ->nullable()
+                  ->comment('The token amount bought');
+
+            $table->decimal('cost', 25, 10)
+                  ->nullable()
+                  ->comment('The total quote amount invested, from the user wallet');
+
+            $table->timestamp('order_date')
+                  ->comment('At what time did the order close, given from the exchange system');
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->engine = 'MyISAM';
+        });
+
         Schema::create('apis', function (Blueprint $table) {
             $table->id();
 
@@ -73,6 +104,37 @@ class CreateNidavellirSchema extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
+            $table->string('system_id')
+                  ->comment('The exchange order system id');
+
+            $table->foreignId('token_id')
+                  ->comment('Relatable token');
+
+            $table->foreignId('quote_id')
+                  ->comment('Relatable quote');
+
+            $table->string('operation_type')
+                  ->nullable()
+                  ->comment('In case it exists, from the exchange');
+
+            $table->foreignId('order_type_id')
+                  ->comment('Relatable order type');
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->engine = 'MyISAM';
+        });
+
+        Schema::create('order_types', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name')
+                  ->comment('Order type name');
+
+            $table->string('canonical')
+                  ->comment('Order type canonical');
+
             $table->timestamps();
             $table->softDeletes();
 
@@ -81,6 +143,20 @@ class CreateNidavellirSchema extends Migration
 
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
+
+            $table->longText('headers')
+                  ->nullable();
+
+            $table->longText('body')
+                  ->nullable();
+
+            $table->string('status')
+                  ->default('received')
+                  ->comment('The current status (received, validated, processed)');
+
+            $table->foreignId('api_id')
+                  ->nullable()
+                  ->comment('The respective api id, in the validated status');
 
             $table->timestamps();
             $table->softDeletes();
@@ -92,7 +168,6 @@ class CreateNidavellirSchema extends Migration
             $table->id();
 
             $table->string('name')
-                  ->nullable()
                   ->comment('Quote name');
 
             $table->string('canonical')
@@ -103,7 +178,6 @@ class CreateNidavellirSchema extends Migration
 
             $table->engine = 'MyISAM';
         });
-
 
         Schema::create('exchanges', function (Blueprint $table) {
             $table->id();
@@ -148,6 +222,6 @@ class CreateNidavellirSchema extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nidavellir_schema');
+        //
     }
 }

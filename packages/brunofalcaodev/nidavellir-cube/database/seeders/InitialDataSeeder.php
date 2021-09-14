@@ -5,6 +5,8 @@ namespace Nidavellir\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Cube\Models\Exchange;
+use Nidavellir\Cube\Models\OrderType;
+use Nidavellir\Cube\Models\Quote;
 use Nidavellir\Cube\Models\User;
 
 class InitialDataSeeder extends Seeder
@@ -44,5 +46,36 @@ class InitialDataSeeder extends Seeder
                 'api_passphrase' => env('KUCOIN_API_PASSPHRASE'),
             ]);
         }
+
+        // Order types
+        OrderType::create([
+            'name' => 'Market',
+            'canonical' => 'market',
+        ]);
+
+        OrderType::create([
+            'name' => 'Limit',
+            'canonical' => 'limit',
+        ]);
+
+        OrderType::create([
+            'name' => 'Stop Limit',
+            'canonical' => 'stop-limit',
+        ]);
+
+        Quote::create([
+            'name' => 'USDT',
+            'canonical' => 'usdt',
+        ]);
+
+        Quote::create([
+            'name' => 'EUR',
+            'canonical' => 'eur',
+        ]);
+
+        Quote::create([
+            'name' => 'BTC',
+            'canonical' => 'btc',
+        ]);
     }
 }

@@ -65,6 +65,6 @@ class KucoinCrawlerService implements Crawler
         $symbol = new Symbol($this->auth);
         $this->response = $symbol->getAllTickers();
 
-        return collect($this->response['ticker']);
+        return $this;
     }
 }
