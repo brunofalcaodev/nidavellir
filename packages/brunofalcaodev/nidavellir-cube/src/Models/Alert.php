@@ -4,6 +4,7 @@ namespace Nidavellir\Cube\Models;
 
 use Nidavellir\Abstracts\Classes\AbstractModel;
 use Nidavellir\Cube\Models\Api;
+use Nidavellir\Cube\Models\Order;
 
 class Alert extends AbstractModel
 {
@@ -11,8 +12,8 @@ class Alert extends AbstractModel
         'headers' => 'array',
     ];
 
-    public function api()
+    public function order()
     {
-        return $this->belongsTo(Api::class);
+        return $this->belongsTo(Order::class);
     }
 }

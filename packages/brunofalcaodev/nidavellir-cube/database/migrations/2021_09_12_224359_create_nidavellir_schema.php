@@ -17,9 +17,9 @@ class CreateNidavellirSchema extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('api_id');
             $table->foreignId('token_id');
             $table->foreignId('quote_id');
+            $table->foreignId('order_id');
 
             $table->string('buy_id')
                   ->comment('The exchange/api system buy id');
@@ -107,6 +107,12 @@ class CreateNidavellirSchema extends Migration
             $table->string('system_id')
                   ->comment('The exchange order system id');
 
+            $table->foreignId('api_id')
+                  ->comment('Relatable api');
+
+            $table->foreignId('alert_id')
+                  ->comment('Relatable alert');
+
             $table->foreignId('token_id')
                   ->comment('Relatable token');
 
@@ -154,9 +160,9 @@ class CreateNidavellirSchema extends Migration
                   ->default('received')
                   ->comment('The current status (received, validated, processed)');
 
-            $table->foreignId('api_id')
+            $table->foreignId('order_id')
                   ->nullable()
-                  ->comment('The respective api id, in the validated status');
+                  ->comment('The respective order instance');
 
             $table->timestamps();
             $table->softDeletes();

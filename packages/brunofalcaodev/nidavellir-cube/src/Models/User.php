@@ -5,6 +5,10 @@ namespace Nidavellir\Cube\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use KuCoin\SDK\PrivateApi\Order;
+use Nidavellir\Cube\Models\Alert;
+use Nidavellir\Cube\Models\Api;
+use Nidavellir\Cube\Models\Exchange;
 use Nidavellir\Database\Factories\UserFactory;
 
 class User extends Authenticatable
@@ -45,6 +49,11 @@ class User extends Authenticatable
     public function apis()
     {
         return $this->hasMany(Api::class);
+    }
+
+    public function alerts()
+    {
+        return $this->hasManyThrough(Alert::class, Api::class);
     }
 
     protected static function newFactory()
