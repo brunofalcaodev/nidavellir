@@ -1,0 +1,34 @@
+{
+    "name": "brunofalcaodev/nidavellir-abstracts",
+    "description": "Nidavellir Abstracts",
+    "keywords": [
+        "brunofalcaodev"
+    ],
+    "homepage": "https://github.com/brunofalcaodev/nidavellir-abstracts",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bruno Falcão",
+            "email": "me@brunofalcao.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nidavellir\\Abstracts\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
