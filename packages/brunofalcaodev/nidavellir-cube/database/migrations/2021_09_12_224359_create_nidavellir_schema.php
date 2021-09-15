@@ -162,7 +162,7 @@ class CreateNidavellirSchema extends Migration
 
             $table->foreignId('order_id')
                   ->nullable()
-                  ->comment('The respective order instance');
+                  ->comment('The respective order instance, when created');
 
             $table->timestamps();
             $table->softDeletes();

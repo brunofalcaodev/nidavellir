@@ -16,7 +16,7 @@ class NidavellirWebhooksServiceProvider extends ServiceProvider
 
     protected function loadRoutes()
     {
-        Route::middleware(['web', RestrictIps::class])
+        Route::middleware(['api', RestrictIps::class])
              ->group(function () {
                  include __DIR__.'/../routes/web.php';
              });
