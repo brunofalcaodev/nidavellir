@@ -10,6 +10,7 @@ class Alert extends AbstractModel
 {
     protected $casts = [
         'headers' => 'array',
+        'body' => 'array'
     ];
 
     public function order()
