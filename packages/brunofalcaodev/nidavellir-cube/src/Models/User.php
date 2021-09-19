@@ -19,6 +19,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email_verified_at',
+        'is_active',
+        'is_subscribed',
         'email',
         'password',
     ];
@@ -40,6 +42,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+
+        'is_active' => 'boolean',
+        'is_subscribed' => 'boolean',
     ];
 
     public function apis()

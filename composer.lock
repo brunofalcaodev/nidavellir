@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99f86ec5c5726fb1e86ce4589cd0fbf1",
+    "content-hash": "0d187185eb5883605df24b394ab86143",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -424,12 +424,67 @@
             }
         },
         {
+            "name": "brunofalcaodev/nidavellir-trading",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/brunofalcaodev/nidavellir-trading",
+                "reference": "5f3f4fb8e7f2d059d1f4c17b271ed8d5909491f0"
+            },
+            "require": {
+                "brunofalcaodev/nidavellir-abstracts": "dev-master",
+                "brunofalcaodev/nidavellir-coingecko": "dev-master",
+                "brunofalcaodev/nidavellir-commands": "dev-master",
+                "brunofalcaodev/nidavellir-cube": "dev-master",
+                "brunofalcaodev/nidavellir-kucoin": "dev-master",
+                "brunofalcaodev/nidavellir-webhooks": "dev-master",
+                "brunofalcaodev/nidavellir-workflows": "dev-master",
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nidavellir\\Trading\\NidavellirTradingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nidavellir\\Trading\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Falcão",
+                    "email": "me@brunofalcao.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Nidavellir Trading",
+            "homepage": "https://github.com/brunofalcaodev/nidavellir-trading",
+            "keywords": [
+                "brunofalcaodev"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "brunofalcaodev/nidavellir-webhooks",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-webhooks",
-                "reference": "a196f384f1918f8539a2b2022f0f51055b162aec"
+                "reference": "45597f672f2ec75d0ed1e1ecf7f966bb37e00f95"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -9465,6 +9520,7 @@
         "brunofalcaodev/nidavellir-cube": 20,
         "brunofalcaodev/nidavellir-installer": 20,
         "brunofalcaodev/nidavellir-kucoin": 20,
+        "brunofalcaodev/nidavellir-trading": 20,
         "matt-allan/laravel-code-style": 20
     },
     "prefer-stable": true,

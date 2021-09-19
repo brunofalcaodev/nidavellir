@@ -19,6 +19,7 @@
         "brunofalcaodev/nidavellir-cube": "dev-master",
         "brunofalcaodev/nidavellir-installer": "dev-master",
         "brunofalcaodev/nidavellir-kucoin": "dev-master",
+        "brunofalcaodev/nidavellir-trading": "dev-master",
         "codenix-sv/coingecko-api": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

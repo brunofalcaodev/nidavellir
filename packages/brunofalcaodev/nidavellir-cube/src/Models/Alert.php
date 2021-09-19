@@ -2,7 +2,6 @@
 
 namespace Nidavellir\Cube\Models;
 
-use Illuminate\Support\Collection;
 use Nidavellir\Abstracts\Classes\AbstractModel;
 
 class Alert extends AbstractModel
