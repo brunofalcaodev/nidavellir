@@ -13,3 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+packages/brunofalcaodev/nidavellir-commands/
+packages/brunofalcaodev/nidavellir-trading/
+packages/brunofalcaodev/nidavellir-workflows/
