@@ -25,10 +25,12 @@
         "laravel/framework": "^8.54"
     },
     "require-dev": {
-        "matt-allan/laravel-code-style": "dev-main",
         "fakerphp/faker": "^1.9.1",
+        "matt-allan/laravel-code-style": "dev-main",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
+        "pestphp/pest": "^1.18",
+        "pestphp/pest-plugin-laravel": "^1.1",
         "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {

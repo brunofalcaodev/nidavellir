@@ -7,6 +7,19 @@ use Nidavellir\Cube\Models\Api;
 class ApiObserver
 {
     /**
+     * Handle the Api "saving" event.
+     *
+     * @param  \Nidavellir\Cube\Models\Api  $api
+     * @return void
+     */
+    public function saving(Api $api)
+    {
+        if (blank($api->hashcode)) {
+            $api->hashcode = uniqid();
+        }
+    }
+
+    /**
      * Handle the Api "created" event.
      *
      * @param  \Nidavellir\Cube\Models\Api  $api

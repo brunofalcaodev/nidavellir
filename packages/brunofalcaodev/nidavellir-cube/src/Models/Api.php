@@ -3,7 +3,6 @@
 namespace Nidavellir\Cube\Models;
 
 use Nidavellir\Abstracts\Classes\AbstractModel;
-use Nidavellir\Cube\Models\Order;
 
 class Api extends AbstractModel
 {

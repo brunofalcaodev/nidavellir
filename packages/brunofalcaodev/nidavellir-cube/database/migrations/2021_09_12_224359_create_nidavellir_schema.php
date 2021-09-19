@@ -48,9 +48,17 @@ class CreateNidavellirSchema extends Migration
         Schema::create('apis', function (Blueprint $table) {
             $table->id();
 
+            $table->string('hashcode')
+                  ->unique()
+                  ->comment('The hashcode to be used in the alerts. Normally, a uniqid()');
+
             $table->text('description')
                   ->nullable()
                   ->comment('A humanable description of what is this api used for');
+
+            $table->text('error')
+                  ->nullable()
+                  ->comment('In case there are issues with the alert, they get recorded here');
 
             $table->foreignId('exchange_id')
                   ->constrained()
@@ -150,19 +158,23 @@ class CreateNidavellirSchema extends Migration
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
 
-            $table->longText('headers')
+            $table->text('headers')
                   ->nullable();
 
-            $table->longText('body')
+            $table->text('body')
                   ->nullable();
 
             $table->string('status')
                   ->default('received')
-                  ->comment('The current status (received, validated, processed)');
+                  ->comment('The current status (received, validated, processed, error)');
 
             $table->foreignId('order_id')
                   ->nullable()
                   ->comment('The respective order instance, when created');
+
+            $table->text('error')
+                  ->nullable()
+                  ->comment('A possible error on the alert');
 
             $table->timestamps();
             $table->softDeletes();

@@ -3,8 +3,6 @@
 namespace Nidavellir\Cube\Models;
 
 use Nidavellir\Abstracts\Classes\AbstractModel;
-use Nidavellir\Cube\Models\Order;
-use Nidavellir\Cube\Models\Position;
 
 class Token extends AbstractModel
 {

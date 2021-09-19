@@ -2,16 +2,26 @@
 
 namespace Nidavellir\Cube\Models;
 
+use Illuminate\Support\Collection;
 use Nidavellir\Abstracts\Classes\AbstractModel;
-use Nidavellir\Cube\Models\Api;
-use Nidavellir\Cube\Models\Order;
 
 class Alert extends AbstractModel
 {
-    protected $casts = [
-        'headers' => 'array',
-        'body' => 'array'
-    ];
+    public function setHeadersAttribute($value)
+    {
+        $this->attributes['headers'] =
+            is_array($value) ?
+            array_to_string($value) :
+            $value;
+    }
+
+    public function setBodyAttribute($value)
+    {
+        $this->attributes['body'] =
+            is_array($value) ?
+            array_to_string($value) :
+            $value;
+    }
 
     public function order()
     {
