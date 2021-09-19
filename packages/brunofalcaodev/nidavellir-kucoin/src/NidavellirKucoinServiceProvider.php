@@ -3,7 +3,7 @@
 namespace Nidavellir\Kucoin;
 
 use Illuminate\Support\ServiceProvider;
-use Nidavellir\Kucoin\Commands\UpdateTokens;
+use Nidavellir\Kucoin\Commands\UpdateTickers;
 
 class NidavellirKucoinServiceProvider extends ServiceProvider
 {
@@ -20,7 +20,7 @@ class NidavellirKucoinServiceProvider extends ServiceProvider
     protected function registerCommands(): void
     {
         $this->commands([
-            UpdateTokens::class,
+            UpdateTickers::class,
         ]);
     }
 }

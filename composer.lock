@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d187185eb5883605df24b394ab86143",
+    "content-hash": "038cd495a06499660aacde044a26ffbb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -128,7 +128,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-abstracts",
-                "reference": "665079b0cc6c26d5ab933a5cb62186831e7ca74d"
+                "reference": "93599089e367c1cb2e924a0c92bfdcb4f709e624"
             },
             "require": {
                 "illuminate/support": "^8.0",
@@ -219,7 +219,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-commands",
-                "reference": "b87b6a0d1dafb70d99f268b770213d98e9679ec9"
+                "reference": "cf6267c4c8ecc964cdf0b5f03c0538a756e016ea"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -273,7 +273,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-cube",
-                "reference": "f86c0d0a79a3714db6932b343e32e19236d5cba1"
+                "reference": "a4e5c680cab8ab8e52bc4f7e475ed431fcdfb8e8"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -324,7 +324,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-installer",
-                "reference": "98e905d0d98271026a60f670a83824a1a1a302e3"
+                "reference": "1d2dcc3b803f0a13d9031a42c874bb32dc23fa0c"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -429,7 +429,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-trading",
-                "reference": "5f3f4fb8e7f2d059d1f4c17b271ed8d5909491f0"
+                "reference": "621f709cf2d624c38e65450dea00671c12907cf0"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -537,7 +537,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/brunofalcaodev/nidavellir-workflows",
-                "reference": "fec7dfb34405f4f9c0838b13282805d30052c4c5"
+                "reference": "b7e34a5622984fec93541d2c07de4f5d7d3abc6f"
             },
             "require": {
                 "brunofalcaodev/nidavellir-abstracts": "dev-master",
@@ -9521,6 +9521,8 @@
         "brunofalcaodev/nidavellir-installer": 20,
         "brunofalcaodev/nidavellir-kucoin": 20,
         "brunofalcaodev/nidavellir-trading": 20,
+        "brunofalcaodev/nidavellir-commands": 20,
+        "brunofalcaodev/nidavellir-coingecko": 20,
         "matt-allan/laravel-code-style": 20
     },
     "prefer-stable": true,

@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Kucoin\KucoinCrawler;
 
-class UpdateTokens extends Command
+class UpdateTickers extends Command
 {
     /**
      * The name and signature of the console command.
@@ -42,7 +42,7 @@ class UpdateTokens extends Command
         $this->info('Updating all Kucoin tokens...');
 
         $data = KucoinCrawler::withApi(Api::firstWhere('id', 1))
-                                 ->allTokens();
+                                 ->allTickers();
 
         /**
          * From here, there is a lot of things to do.

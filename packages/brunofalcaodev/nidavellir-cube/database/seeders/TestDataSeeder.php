@@ -4,6 +4,7 @@ namespace Nidavellir\Database\Seeders;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Seeder;
+use Nidavellir\Cube\Models\Alert;
 use Nidavellir\Cube\Models\Api;
 use Nidavellir\Cube\Models\User;
 
@@ -92,7 +93,20 @@ class TestDataSeeder extends Seeder
              */
 
             foreach (Api::all() as $api) {
+                // How many alerts will be generated?
+                $total = rand(1, 300);
+
+                for ($i = 0; $i < $total; $i++) {
+                }
             }
         });
+    }
+
+    protected function randomAction()
+    {
+    }
+
+    protected function randomTicker()
+    {
     }
 }

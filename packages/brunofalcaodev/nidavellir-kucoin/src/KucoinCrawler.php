@@ -60,7 +60,7 @@ class KucoinCrawlerService implements Crawler
     }
 
     // ***** Api operations *****
-    public function allTokens()
+    public function allTickers()
     {
         $symbol = new Symbol($this->auth);
         $this->response = $symbol->getAllTickers();

@@ -3,7 +3,7 @@
 namespace Nidavellir\Coingecko;
 
 use Illuminate\Support\ServiceProvider;
-use Nidavellir\Coingecko\Commands\UpdateTokens;
+use Nidavellir\Coingecko\Commands\UpdateTickers;
 
 class NidavellirCoingeckoServiceProvider extends ServiceProvider
 {
@@ -20,7 +20,7 @@ class NidavellirCoingeckoServiceProvider extends ServiceProvider
     protected function registerCommands(): void
     {
         $this->commands([
-            UpdateTokens::class,
+            UpdateTickers::class,
         ]);
     }
 }

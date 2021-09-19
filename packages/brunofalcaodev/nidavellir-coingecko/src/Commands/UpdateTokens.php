@@ -4,9 +4,9 @@ namespace Nidavellir\Coingecko\Commands;
 
 use Illuminate\Console\Command;
 use Nidavellir\Coingecko\CoingeckoCrawler;
-use Nidavellir\Cube\Models\Token;
+use Nidavellir\Cube\Models\Ticker;
 
-class UpdateTokens extends Command
+class UpdateTickers extends Command
 {
     /**
      * The name and signature of the console command.
@@ -41,10 +41,10 @@ class UpdateTokens extends Command
     {
         $this->info('Updating all Coingecko tokens...');
 
-        $data = CoingeckoCrawler::allTokens();
+        $data = CoingeckoCrawler::allTickers();
 
         foreach ($data->response() as $token) {
-            Token::updateOrCreate(
+            Ticker::updateOrCreate(
                 ['canonical' => $token['symbol']],
                 ['name' => $token['name']]
             );

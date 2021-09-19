@@ -20,6 +20,8 @@
         "brunofalcaodev/nidavellir-installer": "dev-master",
         "brunofalcaodev/nidavellir-kucoin": "dev-master",
         "brunofalcaodev/nidavellir-trading": "dev-master",
+        "brunofalcaodev/nidavellir-commands": "dev-master",
+        "brunofalcaodev/nidavellir-coingecko": "dev-master",
         "codenix-sv/coingecko-api": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -36,9 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

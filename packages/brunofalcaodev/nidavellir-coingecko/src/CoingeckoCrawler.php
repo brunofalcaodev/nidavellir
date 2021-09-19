@@ -57,7 +57,7 @@ class CoingeckoCrawlerService implements Crawler
     }
 
     // ***** Api operations *****
-    public function allTokens()
+    public function allTickers()
     {
         $client = new CoinGeckoClient();
         $this->execute(function () use ($client) {

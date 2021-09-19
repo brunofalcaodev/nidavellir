@@ -13,7 +13,7 @@ class Order extends AbstractModel
 
     public function token()
     {
-        return $this->belongsTo(Token::class);
+        return $this->belongsTo(Ticker::class);
     }
 
     public function quote()

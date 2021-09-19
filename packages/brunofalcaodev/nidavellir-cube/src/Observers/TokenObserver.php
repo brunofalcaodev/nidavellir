@@ -2,72 +2,72 @@
 
 namespace Nidavellir\Cube\Observers;
 
-use Nidavellir\Cube\Models\Token;
+use Nidavellir\Cube\Models\Ticker;
 
-class TokenObserver
+class TickerObserver
 {
     /**
-     * Handle the Token "saving" event.
+     * Handle the Ticker "saving" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function saving(Token $token)
+    public function saving(Ticker $token)
     {
         $token->canonical = strtoupper($token->canonical);
     }
 
     /**
-     * Handle the Token "created" event.
+     * Handle the Ticker "created" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function created(Token $token)
+    public function created(Ticker $token)
     {
         //
     }
 
     /**
-     * Handle the Token "updated" event.
+     * Handle the Ticker "updated" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function updated(Token $token)
+    public function updated(Ticker $token)
     {
         //
     }
 
     /**
-     * Handle the Token "deleted" event.
+     * Handle the Ticker "deleted" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function deleted(Token $token)
+    public function deleted(Ticker $token)
     {
         //
     }
 
     /**
-     * Handle the Token "restored" event.
+     * Handle the Ticker "restored" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function restored(Token $token)
+    public function restored(Ticker $token)
     {
         //
     }
 
     /**
-     * Handle the Token "force deleted" event.
+     * Handle the Ticker "force deleted" event.
      *
-     * @param  \Nidavellir\Cube\Models\Token  $token
+     * @param  \Nidavellir\Cube\Models\Ticker  $token
      * @return void
      */
-    public function forceDeleted(Token $token)
+    public function forceDeleted(Ticker $token)
     {
         //
     }

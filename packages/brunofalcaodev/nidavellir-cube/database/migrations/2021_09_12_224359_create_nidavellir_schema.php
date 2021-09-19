@@ -98,7 +98,7 @@ class CreateNidavellirSchema extends Migration
 
             $table->string('image_url')
             ->nullable()
-            ->comment('Token image url');
+            ->comment('Ticker image url');
 
             $table->timestamps();
             $table->softDeletes();

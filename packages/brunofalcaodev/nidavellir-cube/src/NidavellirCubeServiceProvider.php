@@ -12,7 +12,7 @@ use Nidavellir\Cube\Models\Order;
 use Nidavellir\Cube\Models\OrderType;
 use Nidavellir\Cube\Models\Position;
 use Nidavellir\Cube\Models\Quote;
-use Nidavellir\Cube\Models\Token;
+use Nidavellir\Cube\Models\Ticker;
 use Nidavellir\Cube\Models\User;
 use Nidavellir\Cube\Observers\AlertObserver;
 use Nidavellir\Cube\Observers\ApiObserver;
@@ -21,7 +21,7 @@ use Nidavellir\Cube\Observers\OrderObserver;
 use Nidavellir\Cube\Observers\OrderTypeObserver;
 use Nidavellir\Cube\Observers\PositionObserver;
 use Nidavellir\Cube\Observers\QuoteObserver;
-use Nidavellir\Cube\Observers\TokenObserver;
+use Nidavellir\Cube\Observers\TickerObserver;
 use Nidavellir\Cube\Observers\UserObserver;
 use Nidavellir\Cube\Policies\AlertPolicy;
 use Nidavellir\Cube\Policies\ApiPolicy;
@@ -30,7 +30,7 @@ use Nidavellir\Cube\Policies\OrderPolicy;
 use Nidavellir\Cube\Policies\OrderTypePolicy;
 use Nidavellir\Cube\Policies\PositionPolicy;
 use Nidavellir\Cube\Policies\QuotePolicy;
-use Nidavellir\Cube\Policies\TokenPolicy;
+use Nidavellir\Cube\Policies\TickerPolicy;
 use Nidavellir\Cube\Policies\UserPolicy;
 
 class NidavellirCubeServiceProvider extends ServiceProvider
@@ -59,7 +59,7 @@ class NidavellirCubeServiceProvider extends ServiceProvider
     {
         User::observe(UserObserver::class);
         Api::observe(ApiObserver::class);
-        Token::observe(TokenObserver::class);
+        Ticker::observe(TickerObserver::class);
         Exchange::observe(ExchangeObserver::class);
         Quote::observe(QuoteObserver::class);
         Position::observe(PositionObserver::class);
@@ -71,7 +71,7 @@ class NidavellirCubeServiceProvider extends ServiceProvider
     protected function registerPolicies(): void
     {
         Gate::policy(User::class, UserPolicy::class);
-        Gate::policy(Token::class, TokenPolicy::class);
+        Gate::policy(Ticker::class, TickerPolicy::class);
         Gate::policy(Exchange::class, ExchangePolicy::class);
         Gate::policy(Api::class, ApiPolicy::class);
         Gate::policy(Quote::class, QuotePolicy::class);

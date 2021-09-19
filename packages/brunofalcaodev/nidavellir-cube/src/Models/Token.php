@@ -4,7 +4,7 @@ namespace Nidavellir\Cube\Models;
 
 use Nidavellir\Abstracts\Classes\AbstractModel;
 
-class Token extends AbstractModel
+class Ticker extends AbstractModel
 {
     public function orders()
     {
